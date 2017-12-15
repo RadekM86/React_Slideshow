@@ -10,15 +10,16 @@ module.exports=[
         "Jakie są kierunki rozwoju",
         "Błędy problemy usprawnienia"
     ],
-        body:[] },
+        body:[] 
+    },
     {
         id: 1,
         titleBold: "",
         title: "",
         body: [
-            "https://www.logicsupply.com/explore/io-hub/wp-content/uploads/2013/07/socket-io-logo.jpg",
-            "http://blog-assets.risingstack.com/2016/Jan/react_best_practices-1453211146748.png",
-            "http://www.techjini.com/wp-content/uploads/2017/01/nodejs-logo.png"
+            "url(https://www.logicsupply.com/explore/io-hub/wp-content/uploads/2013/07/socket-io-logo.jpg)",
+            "url(http://blog-assets.risingstack.com/2016/Jan/react_best_practices-1453211146748.png)",
+            "url(http://www.techjini.com/wp-content/uploads/2017/01/nodejs-logo.png)"
         ]
     },
     {

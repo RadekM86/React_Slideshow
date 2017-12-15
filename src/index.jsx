@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import io from 'socket.io-client';
-import Slide from "./components/Slide.js";
+import Slide from "./components/Slide.jsx";
 
 
 
@@ -9,12 +9,12 @@ class App extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            slide: 0
+            slide: 4
         }
     }
       render(){
           return <div>
-              <Slide slideNo={this.state.slide}/>
+              <Slide slide={this.state.slide}/>
           </div>
       }
 }
