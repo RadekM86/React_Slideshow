@@ -33,6 +33,22 @@ body {
   font-family: Roboto, sans-serif
 }
 
+.slideButton{
+  width: 100px;
+  height: 100px;
+  margin: 40px auto;
+  border-radius: 50%;
+  color: #000;
+  font-size: 20px;
+  font-family: Roboto, sans-serif;
+  line-height: 100px;
+  background-color: #f08080;
+  border: 1px solid #f08080;
+}
+.slideButton:hover{
+  cursor: pointer;
+  background-color: #B05050;
+}
 .titleBold{
   font-size: 10vh;
   font-weight: 700;

@@ -42,7 +42,11 @@ class App extends React.Component{
        render(){
           if(this.state.user===0){
             return <div>
-                <button onClick={this.handleSlide}>NextSlide {this.state.slide}</button>
+                <center>
+                    <span className="title">slid</span><span className="titleBold">::er</span><br></br>
+                <button className="slideButton" onClick={this.handleSlide}>next</button>
+                <div className="slideButton"> {this.state.slide}</div>
+                </center>
                 </div>
           }
           return <div>

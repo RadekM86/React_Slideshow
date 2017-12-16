@@ -24,7 +24,7 @@ module.exports=[
     },
     {
         id: 2,
-        titleBold: "Założenia",
+        titleBold: "założenia",
         title: "",
         body: []
     },
@@ -33,8 +33,8 @@ module.exports=[
         titleBold: "łatwa",
         title: " komunikacja",
         body: [
-            "http://i64.tinypic.com/989c42.jpg",
-            "http://i68.tinypic.com/2ez4k0j.jpg",
+            "url(http://i64.tinypic.com/989c42.jpg)",
+            "url(http://i68.tinypic.com/2ez4k0j.jpg)",
             ""
         ]
     },
@@ -43,7 +43,7 @@ module.exports=[
         titleBold: "design",
         title: " thinking",
         body: [
-            "http://i65.tinypic.com/16nynp.jpg",
+            "url(http://i65.tinypic.com/16nynp.jpg)",
             "",
             ""
         ]
@@ -53,9 +53,9 @@ module.exports=[
         titleBold: "responsive",
         title: " web design",
         body: [
-            "http://i64.tinypic.com/989c42.jpg",
-            "http://i68.tinypic.com/fulc3.jpg",
-            "http://i65.tinypic.com/2cnwh3m.jpg"
+            "url(http://i64.tinypic.com/989c42.jpg)",
+            "url(http://i68.tinypic.com/fulc3.jpg)",
+            "url(http://i65.tinypic.com/2cnwh3m.jpg)"
         ]
     },
     {
@@ -63,8 +63,8 @@ module.exports=[
         titleBold: "apki",
         title: "   ...apki",
         body: [
-            "http://i66.tinypic.com/30cochy.jpg",
-            "http://i66.tinypic.com/2ui9j4w.jpg"
+            "url(http://i66.tinypic.com/30cochy.jpg)",
+            "url(http://i66.tinypic.com/2ui9j4w.jpg)"
         ]
     },
     {
@@ -72,9 +72,9 @@ module.exports=[
         titleBold: "kierunki",
         title: " rozwoju",
         body: [
-            "http://i68.tinypic.com/1zb9anl.jpg",
-            "http://i63.tinypic.com/29c9lav.jpg",
-            "http://i66.tinypic.com/3501f06.jpg"
+            "url(http://i68.tinypic.com/1zb9anl.jpg)",
+            "url(http://i63.tinypic.com/29c9lav.jpg)",
+            "url(http://i66.tinypic.com/3501f06.jpg)"
         ]
     },
     {
@@ -82,12 +82,12 @@ module.exports=[
         titleBold: "błędy",
         title: " i usprawnienia",
         body: [
-            "http://i63.tinypic.com/1zf2d0p.jpg"
+            "url(http://i63.tinypic.com/1zf2d0p.jpg)"
         ]
     },{
         id: 9,
-        titleBold: "ngrok: ",
-        title: "local: ",
+        titleBold: "ngrok:  ",
+        title: "local: 192.168.0.117:4000",
         body: []
     }
 
