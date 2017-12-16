@@ -8,6 +8,7 @@ export default class Slide extends React.Component{
     constructor(props){
         super(props);
     }
+  
 
     render(){
        let slidesToShow = data[this.props.slide]

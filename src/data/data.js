@@ -14,8 +14,8 @@ module.exports=[
     },
     {
         id: 1,
-        titleBold: "",
-        title: "",
+        titleBold: "react.js",
+        title: "+socket.io",
         body: [
             "url(https://www.logicsupply.com/explore/io-hub/wp-content/uploads/2013/07/socket-io-logo.jpg)",
             "url(http://blog-assets.risingstack.com/2016/Jan/react_best_practices-1453211146748.png)",

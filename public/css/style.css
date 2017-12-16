@@ -36,12 +36,12 @@ body {
 .titleBold{
   font-size: 10vh;
   font-weight: 700;
-  line-height: 50vh
+  padding: 40vh 0
 }
 .title{
   font-size: 10vh;
   font-weight: 400;
-  line-height: 50vh
+  padding: 40vh 0
 }
 
 b{
