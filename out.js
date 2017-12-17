@@ -13479,6 +13479,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var counter = 0;
+
 var App = function (_React$Component) {
     _inherits(App, _React$Component);
 
@@ -13487,15 +13489,73 @@ var App = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
-        _this.state = {
-            slide: 4
+        _this.handleSlide = function () {
+            counter++;
+            if (counter > 9) {
+                counter = 0;
+            }
+            var slide = counter;
+            _this.socket.emit('slide', slide);
         };
+
+        _this.state = {
+            slide: 0,
+            user: 1
+        };
+
         return _this;
     }
 
     _createClass(App, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            this.socket = (0, _socket2.default)('/');
+            this.socket.emit('user', this.state.user);
+            this.socket.on('user', function (user) {
+                console.log(user);
+                _this2.setState({ user: user });
+                _this2.socket.on('slide', function (slide) {
+                    _this2.setState({ slide: slide });
+                });
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
+            if (this.state.user === 0) {
+                return _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                        'center',
+                        null,
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'title' },
+                            'slid'
+                        ),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'titleBold' },
+                            '::er'
+                        ),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'button',
+                            { className: 'slideButton', onClick: this.handleSlide },
+                            'next'
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'slideButton' },
+                            ' ',
+                            this.state.slide
+                        )
+                    )
+                );
+            }
             return _react2.default.createElement(
                 'div',
                 null,
@@ -29032,16 +29092,47 @@ var Slide = function (_React$Component) {
         key: 'render',
         value: function render() {
             var slidesToShow = _data2.default[this.props.slide];
-            console.log(_data2.default[this.props.slide]);
-            if (slidesToShow.body.length > 0) {
-                slidesToShow.body.map(function (elem, index) {
-                    return _react2.default.createElement('div', { key: index, className: 'image', style: { backgroundImage: elem } });
+
+            if (this.props.slide == 0) {
+                var list = _data2.default[0].list.map(function (elem, index) {
+                    return _react2.default.createElement(
+                        'li',
+                        { className: "slide" + index },
+                        elem
+                    );
                 });
-            }null;
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'container visible', key: slidesToShow.id },
+                    _react2.default.createElement('img', { src: slidesToShow.body, className: "image " + this.props.slide }),
+                    _react2.default.createElement(
+                        'h1',
+                        null,
+                        ' ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'titleBold' },
+                            slidesToShow.titleBold
+                        ),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'title' },
+                            slidesToShow.title
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'ul',
+                        null,
+                        list
+                    )
+                );
+            }
 
             return _react2.default.createElement(
                 'div',
                 { className: 'container visible', key: slidesToShow.id },
+                _react2.default.createElement('img', { src: slidesToShow.body[0], className: "image img" + this.props.slide }),
                 _react2.default.createElement(
                     'h1',
                     null,
@@ -29051,6 +29142,7 @@ var Slide = function (_React$Component) {
                         { className: 'titleBold' },
                         slidesToShow.titleBold
                     ),
+                    _react2.default.createElement('br', null),
                     _react2.default.createElement(
                         'span',
                         { className: 'title' },
@@ -29075,37 +29167,37 @@ module.exports=[
     titleBold: "krótki",
     title: " wstęp",
     list: [
-        "Co autor miał na myśli...",
-        "Z jakich technologi korzystałem",
+        "Wstęp..",
+        "Z jakich technologii korzystałem",
         "Jakie były główne założenia i cele",
         "Apki, apki, apki",
         "Jakie są kierunki rozwoju",
         "Błędy problemy usprawnienia"
     ],
-        body:[] 
+        body: "http://i66.tinypic.com/30cochy.jpg"
     },
     {
         id: 1,
-        titleBold: "",
-        title: "",
+        titleBold: "react.js",
+        title: "+socket.io",
         body: [
-            "url(https://www.logicsupply.com/explore/io-hub/wp-content/uploads/2013/07/socket-io-logo.jpg)",
-            "url(http://blog-assets.risingstack.com/2016/Jan/react_best_practices-1453211146748.png)",
-            "url(http://www.techjini.com/wp-content/uploads/2017/01/nodejs-logo.png)"
+            "https://www.logicsupply.com/explore/io-hub/wp-content/uploads/2013/07/socket-io-logo.jpg",
+            "http://blog-assets.risingstack.com/2016/Jan/react_best_practices-1453211146748.png",
+            "http://www.techjini.com/wp-content/uploads/2017/01/nodejs-logo.png"
         ]
     },
     {
         id: 2,
-        titleBold: "Założenia",
+        titleBold: "założenia",
         title: "",
-        body: []
+        body: ["http://i66.tinypic.com/30cochy.jpg",
+        "http://i66.tinypic.com/2ui9j4w.jpg"]
     },
     {
         id:3,
         titleBold: "łatwa",
         title: " komunikacja",
         body: [
-            "http://i64.tinypic.com/989c42.jpg",
             "http://i68.tinypic.com/2ez4k0j.jpg",
             ""
         ]
@@ -29135,7 +29227,7 @@ module.exports=[
         titleBold: "apki",
         title: "   ...apki",
         body: [
-            "http://i66.tinypic.com/30cochy.jpg",
+            "http://i65.tinypic.com/2cnwh3m.jpg",
             "http://i66.tinypic.com/2ui9j4w.jpg"
         ]
     },
@@ -29158,9 +29250,11 @@ module.exports=[
         ]
     },{
         id: 9,
-        titleBold: "ngrok: ",
-        title: "local: ",
-        body: []
+        titleBold: "ngrok:  https://8a5c5212.ngrok.io ",
+        title: "local: 192:168.0.117:4000 ",
+        body:[
+            "http://i66.tinypic.com/3501f06.jpg"
+        ]
     }
 
 ]

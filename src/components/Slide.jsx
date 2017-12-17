@@ -11,18 +11,25 @@ export default class Slide extends React.Component{
   
 
     render(){
-       let slidesToShow = data[this.props.slide]
-        console.log(data[this.props.slide])
-        if (slidesToShow.body.length>0){
-            slidesToShow.body.map((elem, index)=>{
-                return <div key={index}className="image" style={{backgroundImage: elem }}></div>
-                            })
-        }null
+       let slidesToShow = data[this.props.slide];
+        
+             if(this.props.slide == 0){
+                let list = data[0].list.map((elem,index)=>{
+                    return <li className={"slide"+index}>{elem}</li>
+                })
+                return <div className="container visible" key={slidesToShow.id}>
+
+                     <img src={slidesToShow.body} className={"image " + this.props.slide}/>     
+                     <h1> <span  className="titleBold">{slidesToShow.titleBold}</span><br></br><span className="title">{slidesToShow.title}</span></h1>
+                     <ul>{list}</ul>
+                 </div>
+             }
+                            
 
               return <div className="container visible" key={slidesToShow.id}>
-                                   
-                    
-                    <h1> <span  className="titleBold">{slidesToShow.titleBold}</span><span className="title">{slidesToShow.title}</span></h1>
+               
+                    <img src={slidesToShow.body[0]} className={"image img" + this.props.slide}/>     
+                    <h1> <span  className="titleBold">{slidesToShow.titleBold}</span><br></br><span className="title">{slidesToShow.title}</span></h1>
                 </div>
                 
         

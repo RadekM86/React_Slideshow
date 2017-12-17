@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import io from 'socket.io-client';
 import Slide from "./components/Slide.jsx";
-import Controller from "./components/Controller.jsx"
+import data from './data/data.js';
+
 
 let counter=0
 
@@ -39,13 +40,23 @@ class App extends React.Component{
         let slide = counter;
         this.socket.emit('slide', slide)
     }
+    selectNumber = (e)=>{
+        let number = e.target.id;
+        this.socket.emit('slide', number)
+    }
        render(){
+            let slideNumber = data.map((elem, index)=>{
+                return <button className="slideNumber"key={index} id={elem.id} onClick={this.selectNumber}>{elem.id}</button>
+            })
           if(this.state.user===0){
             return <div>
                 <center>
                     <span className="title">slid</span><span className="titleBold">::er</span><br></br>
                 <button className="slideButton" onClick={this.handleSlide}>next</button>
                 <div className="slideButton"> {this.state.slide}</div>
+                <div className="numberContainer">
+                    {slideNumber}
+                </div>
                 </center>
                 </div>
           }

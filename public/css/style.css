@@ -11,19 +11,100 @@ body {
 .hidden{
     display: none
 }
+ul{
+  display: block;
+  width: 30vw;
+}
+li{
+  font-size: 4vh;
+  margin: 10px 30px;
+}
+.slide0{
+  animation-name:list;
+  animation-duration: 2s;
+}
+.slide1{
+  animation-name:list;
+  animation-duration: 4s 
+}
+.slide2{
+  animation-name:list;
+  animation-duration: 6s 
+}
+.slide3{
+  animation-name:list;
+  animation-duration: 8s 
+}
+.slide4{
+  animation-name:list;
+  animation-duration: 9s 
+}
+.slide5{
+  animation-name:list;
+  animation-duration: 10s 
+}
+.slide6{
+  animation-name:list;
+  animation-duration: 11s 
+}
+.slide7{
+  animation-name:list;
+  animation-duration: 12s 
+}
+.slide8{
+  animation-name:list;
+  animation-duration: 14s 
+}
+.slide9{
+  animation-name:list;
+  animation-duration: 16s 
+}
+@keyframes list{
+  0% {opacity: 0}
+  50% {opacity: 0}
+  100%{opacity: 1}
+}
 .visible{
     display:flex;
     animation-name: slideSideways;
     animation-duration: 1s;
 }
 .image{
-    width: 250px;
-    height: 250px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    position: absolute;
+    right: 30px;
+    top:30vh;
+    width: 20vw;
+    height: auto;
     animation-name: puff;
-    animation-duration: 1s;
+    animation-duration: 1.5s;
+}
+
+.img3{
+  animation-name: fly;
+  animation-duration: 3s
+}
+
+.img4{
+  animation-name: puff;
+  animation-duration: 2s;
+  animation-delay: 1s
+}
+.img8{
+  animation-name: rotatation;
+  animation-duration: 1.5s;
+}
+
+@keyframes rotatation{
+  from{transform: rotateZ(0)}
+  to{transform: rotateZ(360deg)}
+}
+
+@keyframes fly{
+  0% {transform: translateX(0px)}
+  10% {transform: translateX(20px)}
+  30%{transform: translateX(-20px)}
+  60%{opacity: 0.8; transform: translateX(-2000px)}
+  100%{opacity: 1; transform: translateX(0px)}
 }
 
 .container{
@@ -32,58 +113,61 @@ body {
   padding: 100px;
   font-family: Roboto, sans-serif
 }
+.numberContainer{
+  display: flex;
+  flex-flow: row wrap;
+  width: 50vw;
+  justify-content: center;
+}
+.slideNumber{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #FFF;
+  border-style: none;
+  border: 2px solid #000;
+  margin: 2px;
+}
 
 .slideButton{
-  width: 100px;
-  height: 100px;
-  margin: 40px auto;
+  width: 80px;
+  height: 80px;
+  margin: 15px auto;
   border-radius: 50%;
   color: #000;
   font-size: 20px;
   font-family: Roboto, sans-serif;
-  line-height: 100px;
-  background-color: #f08080;
-  border: 1px solid #f08080;
+  line-height: 80px;
+  border: 4px solid #000;
 }
 .slideButton:hover{
   cursor: pointer;
-  background-color: #B05050;
+  background-color: #BBB;
 }
 .titleBold{
+  font-family: Roboto, sans-serif;
   font-size: 10vh;
   font-weight: 700;
-  padding: 40vh 0
+  padding: 20vh 0
 }
 .title{
+  font-family: Roboto, sans-serif;
   font-size: 10vh;
   font-weight: 400;
-  padding: 40vh 0
+  padding: 20vh 0
 }
 
-b{
-  font-weight: 700;
-  font-size: 18px;
-  text-align: left
-
+.img1{
+  width: 40vw;
+  height: auto;
+  position: absolute;
+  right: 50vw;
+  top: 50vh;
+  animation-name: puff;
+  animation-duration: 0.5s;
 }
 
-.input{
-  position: fixed;
-  bottom: 10px;
-}
-.input input{
-  height: 40px;
-  width: 80vw;
-  margin: 30px
-}
-.login{
-  height: 50vh;
-  display: flex;
-  wrap: no-wrap;
-  align-content: center;
-  justify-content: center;
-  align-items: center
-}
+
 @keyframes slideSideways{
   0% {transform: translateX(1000px)}
   80%{transform: translateX(-20px)}
@@ -95,78 +179,11 @@ b{
   100% { color: #FAFAFA; transform: translateY(0px)}
 }
 @keyframes puff {
-  from {opacity: 0.5;  transform: scale(0.95)};
+  from {opacity: 0.9;  transform: scale(1.75)};
   to {opacity: 1;  transform: scale(1)}
 }
 @keyframes smile{
   from{transform: translateY(-5px)};
   to{transform: translateY(0px)}
 }
-.blush{
-  animation-name: blush;
-  animation-duration: 1s;
-}
-.mouth{
-  animation-name: smile;
-  animation-duration: 1s;
-}
-.wrapper{
-  position: fixed;
-  height: 50vh;
-  overflow-y: scroll;
-}
-.msg {
-  width: 90vw;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  font-family: Roboto, Arial, sans-serif;
-  justify-content: flex-end;
-  align-items: flex-end;
-  flex-direction: column-reverse
 
-}
-.logo{
-  margin: 20px auto;
-  overflow: hidden
-}
-
-.msg-piece{
-  display: block;
-  max-width: 300px;
-  background-color:#ffb3ba;
-  flex-wrap: wrap;
-  padding: 10px;
-  margin: 5px;
-  animation-name: puff;
-  animation-duration: 0.2s;
-
-}
-.right{
-  background-color: #bae1ff;
-  margin-left: 100px;
-  border-radius: 20px 0 20px 20px;
-  right: 20px;
-}
-.left{
-  background-color:#ffb3ba;
-  margin-right: 100px;
-  border-radius: 0 20px 20px 20px;
-  left: 20px;
-  align-self: flex-start
-
-}
-.avatar{
-  background-size: contain;
-   height: 40px;
-   width: 40px;
-   border-radius: 50%;
-   margin: 5px;
-   
-}
-.avatar:hover{
-  border: 3px solid #BBB;
-}
-.user{
-  align-self: flex-end;
-}
